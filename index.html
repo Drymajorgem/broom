@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>🏎 Pumpkin Bros Highway Racer</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div id="game">
+
+    <!-- HUD -->
+    <div id="hud">
+
+        <div id="score">
+            Score: <span id="scoreValue">0</span>
+        </div>
+
+        <div id="speed">
+            Speed: <span id="speedValue">1</span>x
+        </div>
+
+        <div id="lives">
+            ❤️❤️❤️
+        </div>
+
+    </div>
+
+    <!-- Road -->
+    <div id="road">
+
+        <div id="roadLines"></div>
+
+        <!-- Player -->
+        <div id="player">
+            🚗
+        </div>
+
+        <!-- Explosion -->
+        <div id="explosion">
+            💥
+        </div>
+
+        <!-- Enemy cars will appear here -->
+        <div id="enemyContainer"></div>
+
+    </div>
+
+</div>
+
+<!-- Game Over -->
+
+<div id="gameOver">
+
+    <h1>💥 GAME OVER 💥</h1>
+
+    <p>
+        Final Score:
+        <span id="finalScore">0</span>
+    </p>
+
+    <button onclick="location.reload()">
+        Play Again
+    </button>
+
+</div>
+
+<!-- Controls -->
+
+<div id="controls">
+
+    <h3>🎮 Controls</h3>
+
+    <p>⬅ Left Arrow / A</p>
+
+    <p>➡ Right Arrow / D</p>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+
