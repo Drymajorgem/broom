@@ -1,0 +1,404 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    user-select:none;
+}
+
+body{
+
+    overflow:hidden;
+    background:#111;
+    font-family:Arial,Helvetica,sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+
+}
+
+/* ================= GAME ================= */
+
+#game{
+
+    position:relative;
+    width:420px;
+    height:700px;
+
+    overflow:hidden;
+
+    border:6px solid orange;
+
+    border-radius:20px;
+
+    box-shadow:
+    0 0 20px orange,
+    0 0 50px #ff8800;
+
+    background:#333;
+
+}
+
+/* ================= ROAD ================= */
+
+#road{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    background:#444;
+
+    overflow:hidden;
+
+}
+
+/* Grass */
+
+#road::before{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+top:0;
+
+width:50px;
+
+height:100%;
+
+background:#1f7a1f;
+
+}
+
+#road::after{
+
+content:"";
+
+position:absolute;
+
+right:0;
+
+top:0;
+
+width:50px;
+
+height:100%;
+
+background:#1f7a1f;
+
+}
+
+/* Center dashed line */
+
+#roadLines{
+
+position:absolute;
+
+left:50%;
+
+transform:translateX(-50%);
+
+width:10px;
+
+height:200%;
+
+background:
+repeating-linear-gradient(
+
+to bottom,
+
+white 0 40px,
+
+transparent 40px 80px
+
+);
+
+animation:roadMove .4s linear infinite;
+
+}
+
+@keyframes roadMove{
+
+from{
+
+transform:translate(-50%,0);
+
+}
+
+to{
+
+transform:translate(-50%,80px);
+
+}
+
+}
+
+/* ================= PLAYER ================= */
+
+#player{
+
+position:absolute;
+
+bottom:35px;
+
+left:170px;
+
+width:70px;
+
+height:120px;
+
+font-size:70px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+transition:left .06s linear;
+
+z-index:10;
+
+}
+
+/* ================= ENEMY ================= */
+
+.enemy{
+
+position:absolute;
+
+width:70px;
+
+height:120px;
+
+font-size:70px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+/* ================= EXPLOSION ================= */
+
+#explosion{
+
+position:absolute;
+
+font-size:120px;
+
+display:none;
+
+z-index:100;
+
+animation:boom .6s forwards;
+
+}
+
+@keyframes boom{
+
+0%{
+
+transform:scale(.2);
+
+opacity:0;
+
+}
+
+30%{
+
+opacity:1;
+
+transform:scale(1.4);
+
+}
+
+100%{
+
+opacity:0;
+
+transform:scale(2.5);
+
+}
+
+}
+
+/* ================= HUD ================= */
+
+#hud{
+
+position:absolute;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+padding:15px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+z-index:20;
+
+background:rgba(0,0,0,.5);
+
+color:white;
+
+font-size:20px;
+
+font-weight:bold;
+
+}
+
+#score{
+
+color:#00ffcc;
+
+}
+
+#speed{
+
+color:#ffee55;
+
+}
+
+#lives{
+
+color:red;
+
+}
+
+/* ================= GAME OVER ================= */
+
+#gameOver{
+
+position:absolute;
+
+inset:0;
+
+display:none;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+background:rgba(0,0,0,.92);
+
+color:white;
+
+z-index:500;
+
+}
+
+#gameOver h1{
+
+font-size:55px;
+
+margin-bottom:25px;
+
+color:#ff4444;
+
+text-shadow:0 0 15px red;
+
+}
+
+#gameOver p{
+
+font-size:30px;
+
+margin-bottom:30px;
+
+}
+
+#gameOver button{
+
+padding:15px 35px;
+
+font-size:22px;
+
+background:orange;
+
+border:none;
+
+border-radius:15px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+#gameOver button:hover{
+
+background:#ffaa00;
+
+transform:scale(1.1);
+
+}
+
+/* ================= CONTROLS ================= */
+
+#controls{
+
+position:absolute;
+
+right:30px;
+
+top:40px;
+
+background:#222;
+
+padding:20px;
+
+border-radius:15px;
+
+border:2px solid orange;
+
+color:white;
+
+line-height:1.8;
+
+box-shadow:0 0 15px orange;
+
+}
+
+#controls h3{
+
+margin-bottom:10px;
+
+color:orange;
+
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
+
+#controls{
+
+display:none;
+
+}
+
+#game{
+
+width:95vw;
+
+height:95vh;
+
+}
+
+}
